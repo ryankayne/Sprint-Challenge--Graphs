@@ -10,9 +10,9 @@ world = World()
 
 
 # You may uncomment the smaller graphs for development and testing purposes.
-map_file = "maps/test_line.txt"
+# map_file = "maps/test_line.txt"
 # map_file = "maps/test_cross.txt"
-# map_file = "maps/test_loop.txt"
+map_file = "maps/test_loop.txt"
 # map_file = "maps/test_loop_fork.txt"
 # map_file = "maps/main_maze.txt"
 
@@ -28,6 +28,57 @@ player = Player(world.starting_room)
 # Fill this out with directions to walk
 # traversal_path = ['n', 'n']
 traversal_path = []
+
+
+class Stack():
+    def __init__(self):
+        self.stack = []
+    def push(self, value):
+        self.stack.append(value)
+    def pop(self):
+        if self.size() > 0:
+            return self.stack.pop()
+        else:
+            return None
+    def size(self):
+        return len(self.stack)
+
+# class Queue():
+#     def __init__(self):
+#         self.queue = []
+#     def enqueue(self, value):
+#         self.queue.append(value)
+#     def dequeue(self):
+#         if self.size() > 0:
+#             return self.queue.pop(0)
+#         else:
+#             return None
+#     def size(self):
+#         return len(self.queue)
+        
+
+# while len(visited) < len(room_graph):
+#     if player.current_room not in visited:
+
+# def dfs(visited, graph, node):
+#     if node not in visited:
+#         print (node)
+#         visited.add(node)
+#         for neighbor in graph[node]:
+#             dfs(visited, graph, neighbor)
+
+def dft(start_node):
+    s = Stack()
+    visited = {}
+
+    visited.push(player.current_room)
+
+    while len(visited) < len(room_graph):
+        if player.current_room not in visited:
+            s.push(player.current_room)
+        else:
+            
+
 
 
 
